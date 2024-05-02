@@ -42,4 +42,13 @@ export class Board {
     // const tileForPlayer = this.findRandomTileOnBoard();
     // tileForPlayer.addCurrentOrganism(player);
   };
+  findRandomTileOnBoard = () => {
+    const randomX = Math.floor(Math.random() * this.width);
+    const randomY = Math.floor(Math.random() * this.height);
+    const foundTile = this.tiles[randomX][randomY];
+    if (foundTile.currentOrganism) {
+      return this.findRandomTileOnBoard();
+    }
+    return foundTile;
+  };
 }
