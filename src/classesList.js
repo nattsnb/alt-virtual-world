@@ -9,13 +9,13 @@ import { Berry } from './berry/Berry';
 import { SowThistle } from './thistle/Thistle';
 
 export let classesList = [
-    Wolf,
-    Sheep,
-    Fox,
-    Antelope,
-    Turtle,
-    Grass,
-    Guarana,
-    Berry,
-    SowThistle,
+  Wolf,
+  Sheep,
+  Fox,
+  Antelope,
+  Turtle,
+  Grass,
+  Guarana,
+  Berry,
+  SowThistle,
 ];

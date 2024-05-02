@@ -1,5 +1,5 @@
 import { Tile } from './Tile';
-import {classesList} from "./classesList";
+import { classesList } from './classesList';
 
 export class Board {
   constructor(width, height) {
@@ -7,6 +7,7 @@ export class Board {
     this.height = height;
     this.tiles = [];
     this.render();
+    this.createInitialCharacters();
   }
 
   render = () => {
@@ -28,10 +29,10 @@ export class Board {
     const numberOfCharacters = Math.round(this.width * this.height * 0.3);
     for (let i = 0; i < numberOfCharacters; i++) {
       let RandomOrganismClass =
-          classesList[Math.floor(Math.random() * classesList.length)];
+        classesList[Math.floor(Math.random() * classesList.length)];
       const organism = new RandomOrganismClass(
-          this,
-          RandomOrganismClass.startParameters,
+        this,
+        RandomOrganismClass.startParameters,
       );
       const tileForNewOrganism = this.findRandomTileOnBoard();
       tileForNewOrganism.addCurrentOrganism(organism);
