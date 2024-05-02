@@ -4,7 +4,6 @@ export class Tile {
     this.y = y;
     this.currentOrganism = null;
     this.createTileElement();
-    this.initializeEventListener();
     this.board = board;
   }
 

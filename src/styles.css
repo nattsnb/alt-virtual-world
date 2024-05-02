@@ -1,3 +1,53 @@
+#board-container {
+  border: 4mm ridge black;
+  width: fit-content;
+  height: fit-content;
+}
+
+.tileContainer {
+  border: 1mm ridge black;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.organism-image {
+  width: 55px;
+  height: 55px;
+}
+
+@media (max-width: 1200px) {
+  #board-container {
+    border: 2mm ridge black;
+  }
+
+  .tileContainer {
+    border: 1mm ridge black;
+    width: 5.5vw;
+    height: 5.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .organism-image {
+    width: 4.5vw;
+    height: 4.5vw;
+  }
+}
+
+#activeTile {
+  border: 1mm ridge red;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
 body {
-  color: red;
+  display: flex;
+  justify-content: center;
 }

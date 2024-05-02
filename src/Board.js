@@ -10,10 +10,9 @@ export class Board {
 
   render = () => {
     const boardContainer = document.querySelector('#board-container');
-    // ========= form old render(), do I need that? ============
-    // for (let i = 0; i < this.height; i++) {
-    //     this.tiles[i] = [];
-    // }
+    for (let i = 0; i < this.height; i++) {
+      this.tiles[i] = [];
+    }
     for (let i = 0; i < this.height; i++) {
       const row = document.createElement('div');
       row.classList.add(`row`);
