@@ -1,4 +1,5 @@
 import { Tile } from './Tile';
+import {classesList} from "./classesList";
 
 export class Board {
   constructor(width, height) {
@@ -22,5 +23,23 @@ export class Board {
         row.append(this.tiles[j][i].tileContainer);
       }
     }
+  };
+  createInitialCharacters = () => {
+    const numberOfCharacters = Math.round(this.width * this.height * 0.3);
+    for (let i = 0; i < numberOfCharacters; i++) {
+      let RandomOrganismClass =
+          classesList[Math.floor(Math.random() * classesList.length)];
+      const organism = new RandomOrganismClass(
+          this,
+          RandomOrganismClass.startParameters,
+      );
+      const tileForNewOrganism = this.findRandomTileOnBoard();
+      tileForNewOrganism.addCurrentOrganism(organism);
+      console.log(organism);
+    }
+    // const player = new Player(this, Player.startParameters);
+    // // console.log(player);
+    // const tileForPlayer = this.findRandomTileOnBoard();
+    // tileForPlayer.addCurrentOrganism(player);
   };
 }
