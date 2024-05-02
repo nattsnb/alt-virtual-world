@@ -6,6 +6,7 @@ export class Organism {
     this.element = document.createElement('span');
     this.element.innerText = 'organism';
     this.board = board;
+    this.isAlive = true;
   }
 
   createElement = () => {
@@ -13,4 +14,8 @@ export class Organism {
     this.element.classList.add('organism-image');
     this.element.src = this.image;
   };
+
+  death = () => {
+    this.isAlive = false;
+  }
 }
