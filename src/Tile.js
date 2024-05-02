@@ -14,7 +14,8 @@ export class Tile {
 
   addCurrentOrganism = (organism) => {
     this.currentOrganism = organism;
-    this.refresh()
+    this.tileContainer.innerHTML = '';
+    this.tileContainer.append(this.currentOrganism.element);
   }
 
   deleteCurrentOrganism = () => {
@@ -22,9 +23,4 @@ export class Tile {
     this.currentOrganism = null;
     this.tileContainer.innerHTML = '';
   }
-
-  refresh = () => {
-    this.tileContainer.innerHTML = '';
-    this.tileContainer.append(this.currentOrganism.element);
-  };
 }
