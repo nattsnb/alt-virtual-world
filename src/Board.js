@@ -36,7 +36,7 @@ export class Board {
       );
       const tileForNewOrganism = this.findRandomTileOnBoard();
       tileForNewOrganism.addCurrentOrganism(organism);
-      console.log(organism);
+      // console.log(organism);
     }
     // const player = new Player(this, Player.startParameters);
     // // console.log(player);
@@ -52,4 +52,36 @@ export class Board {
     }
     return foundTile;
   };
+  round = async () => {
+    const organismsOnBoard = this.getOrganisms();
+    console.log(organismsOnBoard)
+    this.sortedOrganismsOnBoard = this.sortOrganisms(organismsOnBoard);
+    console.log(this.sortedOrganismsOnBoard);
+    // for (let i = 0; i < this.sortedOrganismsOnBoard.length; i++) {
+    //   if (this.sortedOrganismsOnBoard[i].currentOrganism.isAlive === true){
+    //     // console.log(sortedOrganismsOnBoard[i])
+    //     await this.sortedOrganismsOnBoard[i].action();
+    //   }
+    // }
+  };
+  getOrganisms = () => {
+    const organismsOnBoard = [];
+    for (let y = 0; y < this.tiles.length; y++) {
+      for (let x = 0; x < this.tiles.length; x++) {
+        if (this.tiles[x][y].currentOrganism) {
+          organismsOnBoard.push(this.tiles[x][y].currentOrganism);
+        }
+      }
+    }
+    return organismsOnBoard;
+  }
+  sortOrganisms(organismsOnBoard) {
+    organismsOnBoard.sort(function (leftOrganism, rightOrganism) {
+      if (leftOrganism.initiative === rightOrganism.initiative) {
+        return rightOrganism.age - leftOrganism.age;
+      }
+      return rightOrganism.initiative - leftOrganism.initiative;
+    });
+    return organismsOnBoard;
+  }
 }
