@@ -100,7 +100,6 @@ export class Board {
       arrayOfNearestTiles.push(
         this.tiles[x - organism.numberOfSteps][y - organism.numberOfSteps],
       );
-      console.log(arrayOfNearestTiles);
     }
     //move straight.up
     if (y > minimalStep) {

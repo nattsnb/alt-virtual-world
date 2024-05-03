@@ -10,12 +10,24 @@ export class Animal extends Organism {
   }
   action = () => {
     if (this.isAlive) {
-      const nearestTiles = this.board.findNearestTiles(this);
-      console.log(nearestTiles);
-      const newTile = findRandomTileInArray(nearestTiles);
-      console.log(newTile);
+      const newTile = this.findTileForMove();
+      if (newTile.currentOrganism) {
+        //   +++++++++++++++++ fight, mate, eat functions! ++++++++++++++++
+      } else {
+        this.move();
+      }
     }
     // console.log('action: animal');
     super.action();
+  };
+  findTileForMove = () => {
+    const nearestTiles = this.board.findNearestTiles(this);
+    // console.log(nearestTiles);
+    return findRandomTileInArray(nearestTiles);
+    // console.log(newTile);
+  };
+  move = (newTile) => {
+    this.currentTile.clearTile();
+    newTile.addCurrentOrganism(this);
   };
 }

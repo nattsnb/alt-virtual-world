@@ -16,7 +16,7 @@ export class Organism {
     this.element.src = this.image;
   };
 
-  birth = (tile) => {
+  isAddedToTile = (tile) => {
     this.currentTile = tile;
   };
 

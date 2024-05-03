@@ -16,11 +16,15 @@ export class Tile {
     this.currentOrganism = organism;
     this.tileContainer.innerHTML = '';
     this.tileContainer.append(this.currentOrganism.element);
-    organism.birth(this);
+    organism.isAddedToTile(this);
   };
 
-  deleteCurrentOrganism = () => {
+  killCurrentOrganism = () => {
     this.currentOrganism.death();
+    this.currentOrganism = null;
+    this.tileContainer.innerHTML = '';
+  };
+  clearTile = () => {
     this.currentOrganism = null;
     this.tileContainer.innerHTML = '';
   };
