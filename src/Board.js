@@ -54,13 +54,13 @@ export class Board {
   };
   round = async () => {
     const organismsOnBoard = this.getOrganisms();
-    console.log(organismsOnBoard)
+    console.log(organismsOnBoard);
     this.sortedOrganismsOnBoard = this.sortOrganisms(organismsOnBoard);
     console.log(this.sortedOrganismsOnBoard);
     for (let i = 0; i < this.sortedOrganismsOnBoard.length; i++) {
       // if (this.sortedOrganismsOnBoard[i].currentOrganism.isAlive === true){
       //   // console.log(sortedOrganismsOnBoard[i])
-        await this.sortedOrganismsOnBoard[i].action();
+      await this.sortedOrganismsOnBoard[i].action();
       // }
     }
   };
@@ -74,7 +74,7 @@ export class Board {
       }
     }
     return organismsOnBoard;
-  }
+  };
   sortOrganisms(organismsOnBoard) {
     organismsOnBoard.sort(function (leftOrganism, rightOrganism) {
       if (leftOrganism.initiative === rightOrganism.initiative) {

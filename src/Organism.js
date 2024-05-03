@@ -19,8 +19,8 @@ export class Organism {
     this.isAlive = false;
   };
 
-  action = () => {
-    console.log("pierwszy")
-    return true
-  }
+  action() {
+    console.log('pierwszy');
+    return true;
+  };
 }

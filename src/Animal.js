@@ -1,5 +1,4 @@
 import { Organism } from './Organism';
-import { Plant } from './Plant';
 
 export class Animal extends Organism {
   constructor(board, startParameters) {
@@ -9,11 +8,7 @@ export class Animal extends Organism {
     this.strength = startParameters.strength;
   }
   action = () => {
-    // if (shouldMove()) {
-    //   move()
-    //
-    // }
-    console.log("drugi tekst")
-    super.action()
-  }
+    console.log('drugi');
+    super.action();
+  };
 }
