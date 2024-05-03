@@ -57,12 +57,12 @@ export class Board {
     console.log(organismsOnBoard)
     this.sortedOrganismsOnBoard = this.sortOrganisms(organismsOnBoard);
     console.log(this.sortedOrganismsOnBoard);
-    // for (let i = 0; i < this.sortedOrganismsOnBoard.length; i++) {
-    //   if (this.sortedOrganismsOnBoard[i].currentOrganism.isAlive === true){
-    //     // console.log(sortedOrganismsOnBoard[i])
-    //     await this.sortedOrganismsOnBoard[i].action();
-    //   }
-    // }
+    for (let i = 0; i < this.sortedOrganismsOnBoard.length; i++) {
+      // if (this.sortedOrganismsOnBoard[i].currentOrganism.isAlive === true){
+      //   // console.log(sortedOrganismsOnBoard[i])
+        await this.sortedOrganismsOnBoard[i].action();
+      // }
+    }
   };
   getOrganisms = () => {
     const organismsOnBoard = [];

@@ -9,9 +9,11 @@ export class Animal extends Organism {
     this.strength = startParameters.strength;
   }
   action = () => {
-    if (shouldMove()) {
-      move()
-    }
-    super()
+    // if (shouldMove()) {
+    //   move()
+    //
+    // }
+    console.log("drugi tekst")
+    super.action()
   }
 }

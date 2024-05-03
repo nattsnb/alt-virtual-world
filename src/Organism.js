@@ -20,6 +20,7 @@ export class Organism {
   };
 
   action = () => {
+    console.log("pierwszy")
     return true
   }
 }
