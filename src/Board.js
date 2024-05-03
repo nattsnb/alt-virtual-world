@@ -54,9 +54,9 @@ export class Board {
   };
   round = async () => {
     const organismsOnBoard = this.getOrganisms();
-    console.log(organismsOnBoard);
+    // console.log(organismsOnBoard);
     this.sortedOrganismsOnBoard = this.sortOrganisms(organismsOnBoard);
-    console.log(this.sortedOrganismsOnBoard);
+    // console.log(this.sortedOrganismsOnBoard);
     for (let i = 0; i < this.sortedOrganismsOnBoard.length; i++) {
       // if (this.sortedOrganismsOnBoard[i].currentOrganism.isAlive === true){
       //   // console.log(sortedOrganismsOnBoard[i])
@@ -84,4 +84,53 @@ export class Board {
     });
     return organismsOnBoard;
   }
+  findNearestTiles = (organism) => {
+    const minimalStep = organism.numberOfSteps - 1;
+    const x = organism.x;
+    const y = organism.y;
+    const xMax = this.width - organism.numberOfSteps;
+    const yMax = this.height - organism.numberOfSteps;
+    let arrayOfNearestTiles = [];
+    // move left.up
+    if (x > minimalStep && y > minimalStep) {
+      arrayOfNearestTiles.push(
+        this.tiles[x - organism.numberOfSteps][y - organism.numberOfSteps],
+      );
+    }
+    //move straight.up
+    if (y > minimalStep) {
+      arrayOfNearestTiles.push(this.tiles[x][y - organism.numberOfSteps]);
+    }
+    // move right.up
+    if (x < xMax && y > minimalStep) {
+      arrayOfNearestTiles.push(
+        this.tiles[x + organism.numberOfSteps][y - organism.numberOfSteps],
+      );
+    }
+    // move right.straight
+    if (x < xMax) {
+      arrayOfNearestTiles.push(this.tiles[x + organism.numberOfSteps][y]);
+    }
+    // move right.down
+    if (x < xMax && y < yMax) {
+      arrayOfNearestTiles.push(
+        this.tiles[x + organism.numberOfSteps][y + organism.numberOfSteps],
+      );
+    }
+    //move straight.down
+    if (y < yMax) {
+      arrayOfNearestTiles.push(this.tiles[x][y + organism.numberOfSteps]);
+    }
+    // move left.down
+    if (x > minimalStep && y < yMax) {
+      arrayOfNearestTiles.push(
+        this.tiles[x - organism.numberOfSteps][y + organism.numberOfSteps],
+      );
+    }
+    // move left.straight
+    if (x > minimalStep) {
+      arrayOfNearestTiles.push(this.tiles[x - organism.numberOfSteps][y]);
+    }
+    return arrayOfNearestTiles;
+  };
 }

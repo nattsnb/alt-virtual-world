@@ -23,5 +23,5 @@ export class Organism {
     // console.log('action: organism');
     this.age = this.age + 1;
     return true;
-  };
+  }
 }
