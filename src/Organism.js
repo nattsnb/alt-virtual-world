@@ -7,6 +7,7 @@ export class Organism {
     this.element.innerText = 'organism';
     this.board = board;
     this.isAlive = true;
+    this.currentTile = null;
   }
 
   createElement = () => {
@@ -15,7 +16,12 @@ export class Organism {
     this.element.src = this.image;
   };
 
+  birth = (tile) => {
+    this.currentTile = tile;
+  };
+
   death = () => {
+    this.currentTile = null;
     this.isAlive = false;
   };
 

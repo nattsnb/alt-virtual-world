@@ -69,7 +69,9 @@ export class Board {
     for (let y = 0; y < this.tiles.length; y++) {
       for (let x = 0; x < this.tiles.length; x++) {
         if (this.tiles[x][y].currentOrganism) {
-          organismsOnBoard.push(this.tiles[x][y].currentOrganism);
+          if (this.tiles[x][y].currentOrganism.isAlive) {
+            organismsOnBoard.push(this.tiles[x][y].currentOrganism);
+          }
         }
       }
     }
@@ -86,8 +88,10 @@ export class Board {
   }
   findNearestTiles = (organism) => {
     const minimalStep = organism.numberOfSteps - 1;
-    const x = organism.x;
-    const y = organism.y;
+    // console.log(minimalStep);
+    const x = organism.currentTile.x;
+    const y = organism.currentTile.y;
+    // console.log(x, y);
     const xMax = this.width - organism.numberOfSteps;
     const yMax = this.height - organism.numberOfSteps;
     let arrayOfNearestTiles = [];
@@ -96,6 +100,7 @@ export class Board {
       arrayOfNearestTiles.push(
         this.tiles[x - organism.numberOfSteps][y - organism.numberOfSteps],
       );
+      console.log(arrayOfNearestTiles);
     }
     //move straight.up
     if (y > minimalStep) {

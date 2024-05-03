@@ -16,6 +16,7 @@ export class Tile {
     this.currentOrganism = organism;
     this.tileContainer.innerHTML = '';
     this.tileContainer.append(this.currentOrganism.element);
+    organism.birth(this);
   };
 
   deleteCurrentOrganism = () => {
