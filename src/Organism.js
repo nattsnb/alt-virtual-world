@@ -18,4 +18,8 @@ export class Organism {
   death = () => {
     this.isAlive = false;
   };
+
+  action = () => {
+    return true
+  }
 }

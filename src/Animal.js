@@ -8,4 +8,10 @@ export class Animal extends Organism {
     this.numberOfSteps = startParameters.numberOfSteps;
     this.strength = startParameters.strength;
   }
+  action = () => {
+    if (shouldMove()) {
+      move()
+    }
+    super()
+  }
 }
