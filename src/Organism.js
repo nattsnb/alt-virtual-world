@@ -20,7 +20,8 @@ export class Organism {
   };
 
   action() {
-    console.log('pierwszy');
+    // console.log('action: organism');
+    this.age = this.age + 1;
     return true;
   };
 }

@@ -8,7 +8,7 @@ export class Animal extends Organism {
     this.strength = startParameters.strength;
   }
   action = () => {
-    console.log('drugi');
+    // console.log('action: animal');
     super.action();
   };
 }
