@@ -56,7 +56,7 @@ export class Board {
     const organismsOnBoard = this.getOrganisms();
     // console.log(organismsOnBoard);
     this.sortedOrganismsOnBoard = this.sortOrganisms(organismsOnBoard);
-    // console.log(this.sortedOrganismsOnBoard);
+    console.log(this.sortedOrganismsOnBoard);
     for (let i = 0; i < this.sortedOrganismsOnBoard.length; i++) {
       // if (this.sortedOrganismsOnBoard[i].currentOrganism.isAlive === true){
       //   // console.log(sortedOrganismsOnBoard[i])
