@@ -57,7 +57,7 @@ export class Animal extends Organism {
     return opponent instanceof this.constructor;
   };
   mate = (opponent) => {
-    console.log(`I will mate`);
+    console.log(`I mated`);
   };
   shouldFight = (opponent) => {
     return opponent instanceof Animal;
