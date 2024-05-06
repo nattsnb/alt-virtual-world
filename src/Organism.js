@@ -20,7 +20,7 @@ export class Organism {
     this.currentTile = tile;
   };
 
-  death = () => {
+  death = (killer) => {
     this.currentTile = null;
     this.isAlive = false;
   };

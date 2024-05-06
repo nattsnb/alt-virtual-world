@@ -5,9 +5,9 @@ export class Plant extends Organism {
     super(board, startParameters);
     this.chancesToSpread = startParameters.chancesToSpread;
   }
-  death = (organism) => {
+  death = (killer) => {
     console.log(`I got eaten by:`);
-    console.log(organism);
+    console.log(killer);
     this.currentTile = null;
     this.isAlive = false;
   };

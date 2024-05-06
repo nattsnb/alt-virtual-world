@@ -49,8 +49,7 @@ export class Animal extends Organism {
     return !(opponent instanceof Animal);
   };
   eatPlant = (opponent, newTile) => {
-    newTile.killCurrentOrganism();
-    opponent.death(this);
+    newTile.killCurrentOrganism(this);
     newTile.addCurrentOrganism(this);
     console.log(`I ate a plant`);
   };

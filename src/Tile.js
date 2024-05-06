@@ -18,8 +18,8 @@ export class Tile {
     this.tileContainer.append(this.currentOrganism.element);
     organism.isAddedToTile(this);
   };
-  killCurrentOrganism = () => {
-    this.currentOrganism.death();
+  killCurrentOrganism = (killer) => {
+    this.currentOrganism.death(killer);
     this.currentOrganism = null;
     this.tileContainer.innerHTML = '';
   };
