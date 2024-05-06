@@ -46,7 +46,7 @@ export class Animal extends Organism {
     return !newTile.currentOrganism;
   };
   shouldEat = (opponent) => {
-    return !opponent instanceof Animal;
+    return !(opponent instanceof Animal);
   };
   eatPlant = (newTile) => {
     console.log(`I will eat a plant`);
@@ -58,7 +58,7 @@ export class Animal extends Organism {
     console.log(`I will mate`);
   };
   shouldFight = (opponent) => {
-    return !(opponent instanceof Animal);
+    return opponent instanceof Animal;
   };
   fight = (opponent) => {
     console.log(`I will fight`);
