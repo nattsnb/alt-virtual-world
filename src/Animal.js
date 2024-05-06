@@ -11,9 +11,16 @@ export class Animal extends Organism {
   action = () => {
     if (this.isAlive) {
       const newTile = this.findTileForMove();
-      if (newTile.currentOrganism) {
-        //   +++++++++++++++++ fight, mate, eat functions! ++++++++++++++++
-      } else if (this.shouldMove(newTile)){
+      const opponent = newTile.currentOrganism;
+      if (opponent) {
+        if (this.shouldEat(opponent)) {
+          this.eatPlant(opponent);
+        } else if (this.shouldMate(opponent)) {
+          this.mate(opponent);
+        } else if (this.shouldFight(opponent)) {
+          this.fight(opponent);
+        }
+      } else if (this.shouldMove(newTile)) {
         this.move(newTile);
       }
     }
@@ -36,6 +43,24 @@ export class Animal extends Organism {
   };
 
   shouldMove = (newTile) => {
-    return !newTile.currentOrganism
-  }
+    return !newTile.currentOrganism;
+  };
+  shouldEat = (opponent) => {
+    return !opponent instanceof Animal;
+  };
+  eatPlant = (newTile) => {
+    console.log(`I will eat a plant`);
+  };
+  shouldMate = (opponent) => {
+    return (opponent instanceof this.constructor);
+  };
+  mate = (opponent) => {
+    console.log(`I will mate`);
+  };
+  shouldFight = (opponent) => {
+    return !(opponent instanceof Animal);
+  };
+  fight = (opponent) => {
+    console.log(`I will fight`);
+  };
 }
