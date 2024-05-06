@@ -18,7 +18,6 @@ export class Tile {
     this.tileContainer.append(this.currentOrganism.element);
     organism.isAddedToTile(this);
   };
-
   killCurrentOrganism = () => {
     this.currentOrganism.death();
     this.currentOrganism = null;

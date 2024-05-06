@@ -14,7 +14,7 @@ export class Animal extends Organism {
       const opponent = newTile.currentOrganism;
       if (opponent) {
         if (this.shouldEat(opponent)) {
-          this.eatPlant(opponent);
+          this.eatPlant(opponent, newTile);
         } else if (this.shouldMate(opponent)) {
           this.mate(opponent);
         } else if (this.shouldFight(opponent)) {
@@ -48,11 +48,14 @@ export class Animal extends Organism {
   shouldEat = (opponent) => {
     return !(opponent instanceof Animal);
   };
-  eatPlant = (newTile) => {
-    console.log(`I will eat a plant`);
+  eatPlant = (opponent, newTile) => {
+    newTile.killCurrentOrganism();
+    opponent.death(this);
+    newTile.addCurrentOrganism(this);
+    console.log(`I ate a plant`);
   };
   shouldMate = (opponent) => {
-    return (opponent instanceof this.constructor);
+    return opponent instanceof this.constructor;
   };
   mate = (opponent) => {
     console.log(`I will mate`);
