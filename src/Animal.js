@@ -13,7 +13,7 @@ export class Animal extends Organism {
       const newTile = this.findTileForMove();
       if (newTile.currentOrganism) {
         //   +++++++++++++++++ fight, mate, eat functions! ++++++++++++++++
-      } else {
+      } else if (this.shouldMove(newTile)){
         this.move(newTile);
       }
     }
@@ -32,5 +32,10 @@ export class Animal extends Organism {
     this.currentTile.clearTile();
     newTile.addCurrentOrganism(this);
     // console.log(newTile.currentOrganism)
+    // console.log(`I moved!`);
   };
+
+  shouldMove = (newTile) => {
+    return !newTile.currentOrganism
+  }
 }
