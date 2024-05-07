@@ -148,8 +148,8 @@ export class Board {
     }
     for (let i = 0; i < parent2SurroundingTiles.length; i++) {
       if (
-          !parent2SurroundingTiles[i].currentOrganism &&
-          !surroundingEmptyTiles.includes(parent2SurroundingTiles[i])
+        !parent2SurroundingTiles[i].currentOrganism &&
+        !surroundingEmptyTiles.includes(parent2SurroundingTiles[i])
       ) {
         surroundingEmptyTiles.push(parent2SurroundingTiles[i]);
       }

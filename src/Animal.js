@@ -58,9 +58,20 @@ export class Animal extends Organism {
   };
   mate = (opponent) => {
     const surroundingEmptyTiles = this.board.findEmptyTilesSurroundingParents(
-        this,
-        opponent,
+      this,
+      opponent,
     );
+    console.log(`I will mate`);
+    if (surroundingEmptyTiles.length > 0) {
+      const tileForChild = findRandomTileInArray(surroundingEmptyTiles);
+      const child = new this.constructor(
+        this.board,
+        this.constructor.startParameters,
+      )
+      console.log(`child:`)
+      console.log(child)
+      tileForChild.addCurrentOrganism(child)
+    }
     console.log(`I mated`);
   };
   shouldFight = (opponent) => {
