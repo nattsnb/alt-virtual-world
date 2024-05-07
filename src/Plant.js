@@ -5,6 +5,7 @@ export class Plant extends Organism {
   constructor(board, startParameters) {
     super(board, startParameters);
     this.chancesToSpread = startParameters.chancesToSpread;
+    this.numberOfSteps = 1;
   }
   death = (killer) => {
     // console.log(`I got eaten by:`);
