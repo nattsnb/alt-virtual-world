@@ -88,11 +88,9 @@ export class Animal extends Organism {
     }
     // animal wins
     else if (opponent.strength < this.strength) {
-      const oldTile = this.currentTile;
       const newTile = opponent.currentTile;
       newTile.killCurrentOrganism(this);
-      newTile.addCurrentOrganism(this);
-      oldTile.clearTile();
+      this.move(newTile);
       console.log(`I won`)
     }
     // draw
