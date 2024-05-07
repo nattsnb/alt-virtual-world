@@ -54,7 +54,7 @@ export class Animal extends Organism {
   eatPlant = (opponent, newTile) => {
     newTile.killCurrentOrganism(this);
     newTile.addCurrentOrganism(this);
-    console.log(`I ate a plant`);
+    // console.log(`I ate a plant`);
   };
   shouldMate = (opponent) => {
     if (opponent.isAlive) {
@@ -62,22 +62,22 @@ export class Animal extends Organism {
     }
   };
   mate = (opponent) => {
-    const surroundingEmptyTiles = this.board.findEmptyTilesSurroundingParents(
+    const surroundingEmptyTiles = this.board.findEmptyTilesToMate(
       this,
       opponent,
     );
-    console.log(`I will mate`);
+    // console.log(`I will mate`);
     if (surroundingEmptyTiles.length > 0) {
       const tileForChild = findRandomTileInArray(surroundingEmptyTiles);
       const child = new this.constructor(
         this.board,
         this.constructor.startParameters,
       );
-      console.log(`child:`);
-      console.log(child);
+      // console.log(`child:`);
+      // console.log(child);
       tileForChild.addCurrentOrganism(child);
     }
-    console.log(`I mated`);
+    // console.log(`I mated`);
   };
   shouldFight = (opponent) => {
     if (opponent.isAlive) {
@@ -85,20 +85,20 @@ export class Animal extends Organism {
     }
   };
   fight = (opponent) => {
-    console.log(`I will fight`);
+    // console.log(`I will fight`);
     // animal looses
     if (opponent.strength > this.strength) {
       this.currentTile.killCurrentOrganism(opponent);
-      console.log(`I lost`);
+      // console.log(`I lost`);
     }
     // animal wins
     else if (opponent.strength < this.strength) {
       const newTile = opponent.currentTile;
       newTile.killCurrentOrganism(this);
       this.move(newTile);
-      console.log(`I won`);
+      // console.log(`I won`);
     }
     // draw
-    console.log(`draw`);
+    // console.log(`draw`);
   };
 }

@@ -137,7 +137,7 @@ export class Board {
     }
     return arrayOfNearestTiles;
   };
-  findEmptyTilesSurroundingParents = (parent1, parent2) => {
+  findEmptyTilesToMate = (parent1, parent2) => {
     const parent1SurroundingTiles = this.findNearestTiles(parent1);
     const parent2SurroundingTiles = this.findNearestTiles(parent2);
     let surroundingEmptyTiles = [];
@@ -152,6 +152,16 @@ export class Board {
         !surroundingEmptyTiles.includes(parent2SurroundingTiles[i])
       ) {
         surroundingEmptyTiles.push(parent2SurroundingTiles[i]);
+      }
+    }
+    return surroundingEmptyTiles;
+  };
+  findEmptyTilesToSpread = (motherPlant) => {
+    const surroundingTiles = this.findNearestTiles(motherPlant);
+    let surroundingEmptyTiles = [];
+    for (let i = 0; i < surroundingTiles.length; i++) {
+      if (!surroundingTiles[i].currentOrganism) {
+        surroundingEmptyTiles.push(surroundingTiles[i]);
       }
     }
     return surroundingEmptyTiles;
