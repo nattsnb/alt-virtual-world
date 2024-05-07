@@ -67,17 +67,35 @@ export class Animal extends Organism {
       const child = new this.constructor(
         this.board,
         this.constructor.startParameters,
-      )
-      console.log(`child:`)
-      console.log(child)
-      tileForChild.addCurrentOrganism(child)
+      );
+      console.log(`child:`);
+      console.log(child);
+      tileForChild.addCurrentOrganism(child);
     }
     console.log(`I mated`);
   };
   shouldFight = (opponent) => {
-    return opponent instanceof Animal;
+    if (opponent.isAlive && this.isAlive) {
+      return opponent instanceof Animal;
+    }
   };
   fight = (opponent) => {
     console.log(`I will fight`);
+    // animal looses
+    if (opponent.strength > this.strength) {
+      this.currentTile.killCurrentOrganism(opponent);
+      console.log(`I lost`)
+    }
+    // animal wins
+    else if (opponent.strength < this.strength) {
+      const oldTile = this.currentTile;
+      const newTile = opponent.currentTile;
+      newTile.killCurrentOrganism(this);
+      newTile.addCurrentOrganism(this);
+      oldTile.clearTile();
+      console.log(`I won`)
+    }
+    // draw
+    console.log(`draw`)
   };
 }
