@@ -1,6 +1,6 @@
 import { Tile } from './Tile';
 import { classesList } from './classesList';
-import {Player} from "./player/Player";
+import { Player } from './player/Player';
 
 export class Board {
   constructor(width, height) {
