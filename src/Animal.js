@@ -1,5 +1,6 @@
 import { Organism } from './Organism';
 import { findRandomTileInArray } from './findRandomTileInArray';
+import { Berry } from './berry/Berry';
 
 export class Animal extends Organism {
   constructor(board, startParameters) {
@@ -53,7 +54,11 @@ export class Animal extends Organism {
   };
   eatPlant = (opponent, newTile) => {
     newTile.killCurrentOrganism(this);
-    newTile.addCurrentOrganism(this);
+    if (!(opponent instanceof Berry)) {
+      newTile.addCurrentOrganism(this);
+    } else {
+      this.currentTile.killCurrentOrganism(this);
+    }
     // console.log(`I ate a plant`);
   };
   shouldMate = (opponent) => {

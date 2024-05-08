@@ -38,6 +38,4 @@ export class Turtle extends Animal {
     // console.log('action: animal');
     super.action();
   };
-
 }
-

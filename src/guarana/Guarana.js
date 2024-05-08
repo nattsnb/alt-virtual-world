@@ -13,4 +13,11 @@ export class Guarana extends Plant {
     super(board, startParameters);
     this.createElement();
   }
+  death = (killer) => {
+    // console.log(`I got eaten by:`);
+    // console.log(killer);
+    killer.strength = killer.strength + 3;
+    this.currentTile = null;
+    this.isAlive = false;
+  };
 }

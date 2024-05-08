@@ -8,7 +8,6 @@ export class Berry extends Plant {
     chancesToSpread: 0.1,
     image: berryImage,
   };
-
   constructor(board, startParameters) {
     super(board, startParameters);
     this.createElement();
