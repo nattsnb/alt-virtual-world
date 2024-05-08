@@ -1,5 +1,6 @@
 import { Tile } from './Tile';
 import { classesList } from './classesList';
+import {Player} from "./player/Player";
 
 export class Board {
   constructor(width, height) {
@@ -38,10 +39,10 @@ export class Board {
       tileForNewOrganism.addCurrentOrganism(organism);
       // console.log(organism);
     }
-    // const player = new Player(this, Player.startParameters);
-    // // console.log(player);
-    // const tileForPlayer = this.findRandomTileOnBoard();
-    // tileForPlayer.addCurrentOrganism(player);
+    const player = new Player(this, Player.startParameters);
+    // console.log(player);
+    const tileForPlayer = this.findRandomTileOnBoard();
+    tileForPlayer.addCurrentOrganism(player);
   };
   findRandomTileOnBoard = () => {
     const randomX = Math.floor(Math.random() * this.width);
