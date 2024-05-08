@@ -19,4 +19,19 @@ export class Player extends Animal {
         this.tilesForAction = [];
         this.activeTile = [];
     }
+    action = async () => {
+        this.activeTile = this.board.tiles[this.x][this.y];
+        this.tilesForAction = this.board.findNearestTiles(this);
+        this.tilesForAction.push(this.board.tiles[this.x][this.y]);
+        console.log(this.activeTile);
+        const currentTileDiv = this.board.tiles[this.x][this.y].tileContainer;
+        currentTileDiv.setAttribute('id', 'activeTile');
+        this.age = this.age + 1;
+        return this.move();
+    };
+    move = () => {
+        return new Promise((resolve, reject) => {
+            this.resolveMovement = resolve;
+        });
+    };
 }
