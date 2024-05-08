@@ -25,14 +25,14 @@ export class Player extends Animal {
       this.activeTile = this.currentTile;
       this.tilesForAction = this.board.findNearestTiles(this);
       this.tilesForAction.push(this.currentTile);
-      console.log(this.activeTile);
+      // console.log(this.activeTile);
       const currentTileDiv = this.currentTile.tileContainer;
       currentTileDiv.setAttribute('id', 'activeTile');
       this.age = this.age + 1;
       return this.waitToResolveMovement();
     }
   };
-    waitToResolveMovement = () => {
+  waitToResolveMovement = () => {
     return new Promise((resolve, reject) => {
       this.resolveMovement = resolve;
     });
@@ -40,7 +40,7 @@ export class Player extends Animal {
   moveActiveTile = (coordinates) => {
     this.activeTile.tileContainer.removeAttribute('id');
     this.activeTile = this.board.tiles[coordinates.x][coordinates.y];
-    console.log(this.activeTile);
+    // console.log(this.activeTile);
     const activeTileDiv = this.activeTile.tileContainer;
     activeTileDiv.setAttribute('id', 'activeTile');
   };
@@ -107,37 +107,9 @@ export class Player extends Animal {
       this.resolveMovement();
     }
   };
-  shouldMove = (newTile) => {
-    return !newTile.currentOrganism;
-  };
-  shouldEat = (opponent) => {
-    return !(opponent instanceof Animal);
-  };
-  eatPlant = (opponent, newTile) => {
-    newTile.killCurrentOrganism(this);
-    newTile.addCurrentOrganism(this);
-    // console.log(`I ate a plant`);
-  };
-  shouldFight = (opponent) => {
-    if (opponent.isAlive) {
-      return opponent instanceof Animal;
-    }
-  };
-  fight = (opponent) => {
-    // console.log(`I will fight`);
-    // animal looses
-    if (opponent.strength > this.strength) {
-      this.currentTile.killCurrentOrganism(opponent);
-      // console.log(`I lost`);
-    }
-    // animal wins
-    else if (opponent.strength < this.strength) {
-      const newTile = opponent.currentTile;
-      newTile.killCurrentOrganism(this);
-      this.move(newTile);
-      // console.log(`I won`);
-    }
-    // draw
-    // console.log(`draw`);
+  death = () => {
+    this.currentTile = null;
+    this.isAlive = false;
+    window.removeEventListener('keyup', this.eventToTrigger);
   };
 }

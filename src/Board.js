@@ -10,7 +10,9 @@ export class Board {
     this.render();
     this.createInitialCharacters();
   }
-
+  static isOrganismAPlayer(organism) {
+    return organism instanceof Player;
+  }
   render = () => {
     const boardContainer = document.querySelector('#board-container');
     for (let i = 0; i < this.height; i++) {
@@ -64,6 +66,8 @@ export class Board {
       await this.sortedOrganismsOnBoard[i].action();
       // }
     }
+    const organismsAfterRound = this.getOrganisms();
+    return organismsAfterRound.find(Board.isOrganismAPlayer);
   };
   getOrganisms = () => {
     let organismsOnBoard = [];
