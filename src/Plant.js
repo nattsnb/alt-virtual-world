@@ -30,7 +30,10 @@ export class Plant extends Organism {
       console.log(emptyTiles);
       if (emptyTiles.length > 0) {
         const tileToSpread = findRandomTileInArray(emptyTiles);
-        const child = Object.create(this);
+        const child = new this.constructor(
+          this.board,
+          this.constructor.startParameters,
+        );
         tileToSpread.addCurrentOrganism(child);
         console.warn(`I spread!`);
         console.log(child);
