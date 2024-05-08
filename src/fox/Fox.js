@@ -14,4 +14,9 @@ export class Fox extends Animal {
     super(board, startParameters);
     this.createElement();
   }
+  shouldFight = (opponent) => {
+    if (opponent.isAlive && opponent instanceof Animal) {
+      return opponent.strength <= this.strength;
+    }
+  };
 }
