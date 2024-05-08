@@ -7,13 +7,13 @@ export class Board {
     this.width = width;
     this.height = height;
     this.tiles = [];
-    this.render();
+    this.initializeTiles();
     this.createInitialCharacters();
   }
   static isOrganismAPlayer(organism) {
     return organism instanceof Player;
   }
-  render = () => {
+  initializeTiles = () => {
     const boardContainer = document.querySelector('#board-container');
     for (let i = 0; i < this.height; i++) {
       this.tiles[i] = [];
@@ -31,11 +31,10 @@ export class Board {
   createInitialCharacters = () => {
     const numberOfCharacters = Math.round(this.width * this.height * 0.3);
     for (let i = 0; i < numberOfCharacters; i++) {
-      let RandomOrganismClass =
-        classesList[Math.floor(Math.random() * classesList.length)];
-      const organism = new RandomOrganismClass(
+      const randomClassIndex = Math.floor(Math.random() * classesList.length)
+      const organism = new classesList[randomClassIndex](
         this,
-        RandomOrganismClass.startParameters,
+          classesList[randomClassIndex].startParameters,
       );
       const tileForNewOrganism = this.findRandomTileOnBoard();
       tileForNewOrganism.addCurrentOrganism(organism);
@@ -59,12 +58,9 @@ export class Board {
     const organismsOnBoard = this.getOrganisms();
     // console.log(organismsOnBoard);
     this.sortedOrganismsOnBoard = this.sortOrganisms(organismsOnBoard);
-    console.log(this.sortedOrganismsOnBoard);
+    // console.log(this.sortedOrganismsOnBoard);
     for (let i = 0; i < this.sortedOrganismsOnBoard.length; i++) {
-      // if (this.sortedOrganismsOnBoard[i].currentOrganism.isAlive === true){
-      //   // console.log(sortedOrganismsOnBoard[i])
       await this.sortedOrganismsOnBoard[i].action();
-      // }
     }
     const organismsAfterRound = this.getOrganisms();
     return organismsAfterRound.find(Board.isOrganismAPlayer);

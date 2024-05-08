@@ -37,11 +37,10 @@ export class Tile {
 
   checkClick = () => {
     if (!this.currentOrganism) {
-      let RandomOrganismClass =
-        classesList[Math.floor(Math.random() * classesList.length)];
-      const organism = new RandomOrganismClass(
-        this.board,
-        RandomOrganismClass.startParameters,
+      const randomClassIndex = Math.floor(Math.random() * classesList.length)
+      const organism = new classesList[randomClassIndex](
+          this,
+          classesList[randomClassIndex].startParameters,
       );
       console.log(organism);
       this.addCurrentOrganism(organism);
