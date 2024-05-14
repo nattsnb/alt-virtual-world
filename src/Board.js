@@ -31,10 +31,10 @@ export class Board {
   createInitialCharacters = () => {
     const numberOfCharacters = Math.round(this.width * this.height * 0.3);
     for (let i = 0; i < numberOfCharacters; i++) {
-      const randomClassIndex = Math.floor(Math.random() * classesList.length)
+      const randomClassIndex = Math.floor(Math.random() * classesList.length);
       const organism = new classesList[randomClassIndex](
         this,
-          classesList[randomClassIndex].startParameters,
+        classesList[randomClassIndex].startParameters,
       );
       const tileForNewOrganism = this.findRandomTileOnBoard();
       tileForNewOrganism.addCurrentOrganism(organism);

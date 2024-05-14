@@ -8,16 +8,18 @@ export class Turtle extends Animal {
     numberOfSteps: 1,
     initiative: 1,
     image: turtleImage,
+    chancesOfMoving: 0.25,
   };
 
   constructor(board, startParameters) {
     super(board, startParameters);
     this.createElement();
+    this.chancesOfMoving = startParameters.chancesOfMoving;
   }
 
   action = () => {
     let odds = Math.random();
-    if (odds < 0.25 && this.isAlive) {
+    if (odds < this.chancesOfMoving && this.isAlive) {
       // console.log(`My turn!`)
       // console.log(this)
       // console.log(this.isAlive)
