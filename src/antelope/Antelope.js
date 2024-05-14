@@ -8,11 +8,13 @@ export class Antelope extends Animal {
     numberOfSteps: 2,
     initiative: 4,
     image: antelopeImage,
+    chancesOfFleeing: 0.5,
   };
 
   constructor(board, startParameters) {
     super(board, startParameters);
-    this.createElement();
+    this.createElement()
+    this.chancesOfFleeing = startParameters.chancesOfFleeing;
   }
 
   fight = (opponent) => {
@@ -20,7 +22,7 @@ export class Antelope extends Animal {
     // animal looses
     if (opponent.strength > this.strength) {
       let odds = Math.random();
-      if (odds < 0.5) {
+      if (odds < this.chancesOfFleeing) {
         // console.log(`antelope flies`)
       } else {
         this.currentTile.killCurrentOrganism(opponent);
