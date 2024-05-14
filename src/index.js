@@ -10,10 +10,9 @@ await board.round();
 let game = 0;
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-let isPlayerAlive = true;
 
-while (isPlayerAlive) {
-  isPlayerAlive = await board.round();
+while (board.isPlayerAlive()) {
+  await board.round();
 }
 
 console.log(`player is DEAD. You lost!`);

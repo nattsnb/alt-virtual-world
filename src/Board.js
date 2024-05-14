@@ -62,9 +62,11 @@ export class Board {
     for (let i = 0; i < this.sortedOrganismsOnBoard.length; i++) {
       await this.sortedOrganismsOnBoard[i].action();
     }
-    const organismsAfterRound = this.getOrganisms();
-    return organismsAfterRound.find(Board.isOrganismAPlayer);
   };
+  isPlayerAlive = () => {
+    const organismsOnBoard = this.getOrganisms();
+    return organismsOnBoard.find(Board.isOrganismAPlayer);
+  }
   getOrganisms = () => {
     let organismsOnBoard = [];
     for (let y = 0; y < this.tiles.length; y++) {
