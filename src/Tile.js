@@ -37,13 +37,20 @@ export class Tile {
 
   checkClick = () => {
     if (!this.currentOrganism) {
-      const randomClassIndex = Math.floor(Math.random() * classesList.length);
-      const organism = new classesList[randomClassIndex](
-        this,
-        classesList[randomClassIndex].startParameters,
-      );
-      console.log(organism);
-      this.addCurrentOrganism(organism);
+      const modal = document.getElementById("addOrganismModal");
+      modal.style.display = "block";
+      window.onclick = function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      }
+      // const randomClassIndex = Math.floor(Math.random() * classesList.length);
+      // const organism = new classesList[randomClassIndex](
+      //   this,
+      //   classesList[randomClassIndex].startParameters,
+      // );
+      // console.log(organism);
+      // this.addCurrentOrganism(organism);
     }
   };
   getCurrentOrganism = () => {
