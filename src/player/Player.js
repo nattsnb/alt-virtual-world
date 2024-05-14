@@ -20,6 +20,7 @@ export class Player extends Animal {
     this.tilesForAction = [];
     this.activeTile = [];
   }
+
   action = async () => {
     if (this.isAlive) {
       this.activeTile = this.currentTile;
@@ -54,42 +55,22 @@ export class Player extends Animal {
     if (evt.code === 'KeyW') {
       console.log('keyW');
       const newY = this.activeTile.y - 1;
-      if (
-        this.tilesForAction.includes(this.board.tiles[this.activeTile.x][newY])
-      ) {
-        const coordinates = { x: this.activeTile.x, y: newY };
-        this.moveActiveTile(coordinates);
-      }
+      this.moveVertically(newY)
     }
     if (evt.code === 'KeyA') {
       console.log('KeyA');
       const newX = this.activeTile.x - 1;
-      if (
-        this.tilesForAction.includes(this.board.tiles[newX][this.activeTile.y])
-      ) {
-        const coordinates = { x: newX, y: this.activeTile.y };
-        this.moveActiveTile(coordinates);
-      }
+      this.moveHorizontally(newX)
     }
     if (evt.code === 'KeyS') {
       console.log('KeyS');
       const newY = this.activeTile.y + 1;
-      if (
-        this.tilesForAction.includes(this.board.tiles[this.activeTile.x][newY])
-      ) {
-        const coordinates = { x: this.activeTile.x, y: newY };
-        this.moveActiveTile(coordinates);
-      }
+      this.moveVertically(newY)
     }
     if (evt.code === 'KeyD') {
       console.log('KeyD');
       const newX = this.activeTile.x + 1;
-      if (
-        this.tilesForAction.includes(this.board.tiles[newX][this.activeTile.y])
-      ) {
-        const coordinates = { x: newX, y: this.activeTile.y };
-        this.moveActiveTile(coordinates);
-      }
+      this.moveHorizontally(newX)
     }
     if (evt.code === 'Enter') {
       console.log('Enter');
@@ -107,6 +88,22 @@ export class Player extends Animal {
       this.resolveMovement();
     }
   };
+  moveVertically = (newY) => {
+    if (
+        this.tilesForAction.includes(this.board.tiles[this.activeTile.x][newY])
+    ) {
+      const coordinates = {x: this.activeTile.x, y: newY};
+      this.moveActiveTile(coordinates);
+    }
+  }
+  moveHorizontally = (newX) => {
+    if (
+        this.tilesForAction.includes(this.board.tiles[newX][this.activeTile.y])
+    ) {
+      const coordinates = {x: newX, y: this.activeTile.y};
+      this.moveActiveTile(coordinates);
+    }
+  }
   death = () => {
     this.currentTile = null;
     this.isAlive = false;
