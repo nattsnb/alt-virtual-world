@@ -10,7 +10,6 @@ await board.round();
 let game = 0;
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-
 while (board.isPlayerAlive()) {
   await board.round();
 }

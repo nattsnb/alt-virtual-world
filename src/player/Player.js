@@ -55,22 +55,22 @@ export class Player extends Animal {
     if (evt.code === 'KeyW') {
       console.log('keyW');
       const newY = this.activeTile.y - 1;
-      this.moveVertically(newY)
+      this.moveVertically(newY);
     }
     if (evt.code === 'KeyA') {
       console.log('KeyA');
       const newX = this.activeTile.x - 1;
-      this.moveHorizontally(newX)
+      this.moveHorizontally(newX);
     }
     if (evt.code === 'KeyS') {
       console.log('KeyS');
       const newY = this.activeTile.y + 1;
-      this.moveVertically(newY)
+      this.moveVertically(newY);
     }
     if (evt.code === 'KeyD') {
       console.log('KeyD');
       const newX = this.activeTile.x + 1;
-      this.moveHorizontally(newX)
+      this.moveHorizontally(newX);
     }
     if (evt.code === 'Enter') {
       console.log('Enter');
@@ -90,20 +90,20 @@ export class Player extends Animal {
   };
   moveVertically = (newY) => {
     if (
-        this.tilesForAction.includes(this.board.tiles[this.activeTile.x][newY])
+      this.tilesForAction.includes(this.board.tiles[this.activeTile.x][newY])
     ) {
-      const coordinates = {x: this.activeTile.x, y: newY};
+      const coordinates = { x: this.activeTile.x, y: newY };
       this.moveActiveTile(coordinates);
     }
-  }
+  };
   moveHorizontally = (newX) => {
     if (
-        this.tilesForAction.includes(this.board.tiles[newX][this.activeTile.y])
+      this.tilesForAction.includes(this.board.tiles[newX][this.activeTile.y])
     ) {
-      const coordinates = {x: newX, y: this.activeTile.y};
+      const coordinates = { x: newX, y: this.activeTile.y };
       this.moveActiveTile(coordinates);
     }
-  }
+  };
   death = () => {
     this.currentTile = null;
     this.isAlive = false;

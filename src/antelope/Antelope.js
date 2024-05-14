@@ -13,7 +13,7 @@ export class Antelope extends Animal {
 
   constructor(board, startParameters) {
     super(board, startParameters);
-    this.createElement()
+    this.createElement();
     this.chancesOfFleeing = startParameters.chancesOfFleeing;
   }
 

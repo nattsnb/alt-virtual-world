@@ -48,9 +48,9 @@ export class Tile {
   };
   getCurrentOrganism = () => {
     if (this.currentOrganism) {
-      return this.currentOrganism.isAlive
+      return this.currentOrganism.isAlive;
     } else {
-      return false
+      return false;
     }
-  }
+  };
 }
