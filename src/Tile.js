@@ -46,4 +46,11 @@ export class Tile {
       this.addCurrentOrganism(organism);
     }
   };
+  getCurrentOrganism = () => {
+    if (this.currentOrganism) {
+      return this.currentOrganism.isAlive
+    } else {
+      return false
+    }
+  }
 }

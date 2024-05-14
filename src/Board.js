@@ -71,10 +71,8 @@ export class Board {
     let organismsOnBoard = [];
     for (let y = 0; y < this.tiles.length; y++) {
       for (let x = 0; x < this.tiles.length; x++) {
-        if (this.tiles[x][y].currentOrganism) {
-          if (this.tiles[x][y].currentOrganism.isAlive) {
-            organismsOnBoard.push(this.tiles[x][y].currentOrganism);
-          }
+        if (this.tiles[x][y].getCurrentOrganism()) {
+          organismsOnBoard.push(this.tiles[x][y].currentOrganism);
         }
       }
     }
