@@ -66,7 +66,7 @@ export class Board {
   isPlayerAlive = () => {
     const organismsOnBoard = this.getOrganisms();
     return organismsOnBoard.find(Board.isOrganismAPlayer);
-  }
+  };
   getOrganisms = () => {
     let organismsOnBoard = [];
     for (let y = 0; y < this.tiles.length; y++) {

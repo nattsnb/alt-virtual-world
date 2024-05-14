@@ -61,12 +61,12 @@ body {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 #modal-container {
   background-color: lightgray;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 3% auto; /* 15% from the top and centered */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
   border-radius: 5px;
@@ -78,10 +78,13 @@ body {
   height: 30px;
   border-bottom: 1px solid #888888;
   padding: 18px;
-  font-size: 19px;
+  font-size: 22px;
   background-color: white;
+  border-radius: 5px 5px 0 0;
 }
-
+#close-button:hover {
+  cursor: pointer;
+}
 #modal-body {
   display: flex;
   flex-direction: row;
@@ -112,6 +115,12 @@ body {
 .icon-container {
   width: 85px;
   height: 85px;
+  border: none;
+}
+
+.icon-container:hover {
+  cursor: pointer;
+  border: 2px solid black;
 }
 
 .organism-parameters {
@@ -121,67 +130,67 @@ body {
 
 .organism-info-paragraph {
   padding: 0;
-  margin: 0;
+  margin: 0 0 3px 0;
 }
 
 #wolf-icon {
-  background-image: url("wolf/wolf.jpg");
+  background-image: url('wolf/wolf.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #fox-icon {
-  background-image: url("fox/fox.jpg");
+  background-image: url('fox/fox.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #sheep-icon {
-  background-image: url("sheep/sheep.jpg");
+  background-image: url('sheep/sheep.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #antelope-icon {
-  background-image: url("antelope/antelope.jpg");
+  background-image: url('antelope/antelope.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #turtle-icon {
-  background-image: url("turtle/turtle.jpg");
+  background-image: url('turtle/turtle.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #grass-icon {
-  background-image: url("grass/grass.jpg");
+  background-image: url('grass/grass.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #guarana-icon {
-  background-image: url("guarana/guarana.jpg");
+  background-image: url('guarana/guarana.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #berry-icon {
-  background-image: url("berry/berry.jpg");
+  background-image: url('berry/berry.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #thistle-icon {
-  background-image: url("thistle/thistle.jpg");
+  background-image: url('thistle/thistle.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
