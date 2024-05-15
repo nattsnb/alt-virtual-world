@@ -32,25 +32,15 @@ export class Tile {
   };
 
   initializeEventListener = () => {
-    this.tileContainer.addEventListener('click', this.checkClick);
+    this.tileContainer.addEventListener('click', this.checkClickOnTile);
   };
 
-  checkClick = () => {
+  checkClickOnTile = async () => {
     if (!this.currentOrganism) {
       const modal = document.getElementById('addOrganismModal');
+      this.initializeEventListenerOnModal();
       modal.style.display = 'block';
-      window.onclick = function (event) {
-        if (event.target === modal) {
-          modal.style.display = 'none';
-        }
-      };
-      // const randomClassIndex = Math.floor(Math.random() * classesList.length);
-      // const organism = new classesList[randomClassIndex](
-      //   this,
-      //   classesList[randomClassIndex].startParameters,
-      // );
-      // console.log(organism);
-      // this.addCurrentOrganism(organism);
+      await this.checkClickOnIcon;
     }
   };
   getCurrentOrganism = () => {
@@ -59,5 +49,58 @@ export class Tile {
     } else {
       return false;
     }
+  };
+  initializeEventListenerOnModal = () => {
+    const icons = document.querySelectorAll('.icon-container');
+    for (let i = 0; i < icons.length; ++i) {
+      const icon = icons[i];
+      icon.addEventListener('click', this.eventToTrigger);
+    }
+  };
+  eventToTrigger = (event) => {
+    this.checkClickOnIcon(event);
+  };
+  checkClickOnIcon = (event) => {
+    const icon = event.target.id;
+    if (icon === 'wolf-icon') {
+      this.addOrganismOnClick(0);
+    }
+    if (icon === 'sheep-icon') {
+      this.addOrganismOnClick(1);
+    }
+    if (icon === 'fox-icon') {
+      this.addOrganismOnClick(2);
+    }
+    if (icon === 'antelope-icon') {
+      this.addOrganismOnClick(3);
+    }
+    if (icon === 'turtle-icon') {
+      this.addOrganismOnClick(4);
+    }
+    if (icon === 'grass-icon') {
+      this.addOrganismOnClick(5);
+    }
+    if (icon === 'guarana-icon') {
+      this.addOrganismOnClick(6);
+    }
+    if (icon === 'berry-icon') {
+      this.addOrganismOnClick(7);
+    }
+    if (icon === 'thistle-icon') {
+      this.addOrganismOnClick(8);
+    }
+    if (icon === 'close-button') {
+      const modal = document.getElementById('addOrganismModal');
+      modal.style.display = 'none';
+    }
+  };
+  addOrganismOnClick = (index) => {
+    const newOrganism = new classesList[index](
+      this.board,
+      classesList[index].startParameters,
+    );
+    this.addCurrentOrganism(newOrganism);
+    const modal = document.getElementById('addOrganismModal');
+    modal.style.display = 'none';
   };
 }

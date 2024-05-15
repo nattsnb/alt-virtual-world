@@ -1,7 +1,7 @@
 import { Plant } from '../Plant';
 import thistleImage from './thistle.jpg';
 
-export class SowThistle extends Plant {
+export class Thistle extends Plant {
   static startParameters = {
     age: 0,
     initiative: 0,

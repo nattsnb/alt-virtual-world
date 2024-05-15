@@ -6,7 +6,7 @@ import { Turtle } from './turtle/Turtle';
 import { Grass } from './grass/Grass';
 import { Guarana } from './guarana/Guarana';
 import { Berry } from './berry/Berry';
-import { SowThistle } from './thistle/Thistle';
+import { Thistle } from './thistle/Thistle';
 
 export let classesList = [
   Wolf,
@@ -17,5 +17,5 @@ export let classesList = [
   Grass,
   Guarana,
   Berry,
-  SowThistle,
+  Thistle,
 ];
