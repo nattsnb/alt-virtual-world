@@ -56,6 +56,8 @@ export class Tile {
       const icon = icons[i];
       icon.addEventListener('click', this.eventToTrigger);
     }
+    const closeButton = document.querySelector('#close-button');
+    closeButton.addEventListener('click', this.eventToTrigger);
   };
   eventToTrigger = (event) => {
     this.checkClickOnIcon(event);
