@@ -96,46 +96,61 @@ export class Board {
     const xMax = this.width - organism.numberOfSteps;
     const yMax = this.height - organism.numberOfSteps;
     let arrayOfNearestTiles = [];
-    // move left.up
-    if (x > minimalStep && y > minimalStep) {
-      arrayOfNearestTiles.push(
-        this.tiles[x - organism.numberOfSteps][y - organism.numberOfSteps],
-      );
-    }
+    arrayOfNearestTiles = this.getTileBasedOnThePosition(
+      x > minimalStep && y > minimalStep,
+      x - organism.numberOfSteps,
+      y - organism.numberOfSteps,
+      arrayOfNearestTiles,
+    );
     //move straight.up
-    if (y > minimalStep) {
-      arrayOfNearestTiles.push(this.tiles[x][y - organism.numberOfSteps]);
-    }
+    arrayOfNearestTiles = this.getTileBasedOnThePosition(
+      y > minimalStep,
+      x,
+      y - organism.numberOfSteps,
+      arrayOfNearestTiles,
+    );
     // move right.up
-    if (x < xMax && y > minimalStep) {
-      arrayOfNearestTiles.push(
-        this.tiles[x + organism.numberOfSteps][y - organism.numberOfSteps],
-      );
-    }
+    arrayOfNearestTiles = this.getTileBasedOnThePosition(
+      x < xMax && y > minimalStep,
+      x + organism.numberOfSteps,
+      y - organism.numberOfSteps,
+      arrayOfNearestTiles,
+    );
     // move right.straight
-    if (x < xMax) {
-      arrayOfNearestTiles.push(this.tiles[x + organism.numberOfSteps][y]);
-    }
+    arrayOfNearestTiles = this.getTileBasedOnThePosition(
+      x < xMax,
+      x + organism.numberOfSteps,
+      y,
+      arrayOfNearestTiles,
+    );
     // move right.down
-    if (x < xMax && y < yMax) {
-      arrayOfNearestTiles.push(
-        this.tiles[x + organism.numberOfSteps][y + organism.numberOfSteps],
-      );
-    }
+    arrayOfNearestTiles = this.getTileBasedOnThePosition(
+      x < xMax && y < yMax,
+      x + organism.numberOfSteps,
+      y + organism.numberOfSteps,
+      arrayOfNearestTiles,
+    );
     //move straight.down
-    if (y < yMax) {
-      arrayOfNearestTiles.push(this.tiles[x][y + organism.numberOfSteps]);
-    }
+    arrayOfNearestTiles = this.getTileBasedOnThePosition(
+      y < yMax,
+      x,
+      y + organism.numberOfSteps,
+      arrayOfNearestTiles,
+    );
     // move left.down
-    if (x > minimalStep && y < yMax) {
-      arrayOfNearestTiles.push(
-        this.tiles[x - organism.numberOfSteps][y + organism.numberOfSteps],
-      );
-    }
+    arrayOfNearestTiles = this.getTileBasedOnThePosition(
+      x > minimalStep && y < yMax,
+      x - organism.numberOfSteps,
+      y + organism.numberOfSteps,
+      arrayOfNearestTiles,
+    );
     // move left.straight
-    if (x > minimalStep) {
-      arrayOfNearestTiles.push(this.tiles[x - organism.numberOfSteps][y]);
-    }
+    arrayOfNearestTiles = this.getTileBasedOnThePosition(
+      x > minimalStep,
+      x - organism.numberOfSteps,
+      y,
+      arrayOfNearestTiles,
+    );
     return arrayOfNearestTiles;
   };
   findEmptyTilesToMate = (parent1, parent2) => {
@@ -166,5 +181,17 @@ export class Board {
       }
     }
     return surroundingEmptyTiles;
+  };
+
+  getTileBasedOnThePosition = (
+    shouldTheTileBeAdded,
+    x,
+    y,
+    arrayOfNearestTiles,
+  ) => {
+    if (shouldTheTileBeAdded) {
+      return [...arrayOfNearestTiles, this.tiles[x][y]];
+    }
+    return arrayOfNearestTiles;
   };
 }

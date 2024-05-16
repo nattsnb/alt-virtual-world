@@ -63,35 +63,22 @@ export class Tile {
     this.checkClickOnIcon(event);
   };
   checkClickOnIcon = (event) => {
-    const icon = event.target.id;
-    if (icon === 'wolf-icon') {
-      this.addOrganismOnClick(0);
+    const organismIdToClassMapping = {
+      wolf: Wolf,
+      sheep: Sheep,
+      fox: Fox,
+      antelope: Antelope,
+      turtle: Turtle,
+      grass: Grass,
+      guarana: Guarana,
+      berry: Berry,
+      thistle: Thistle
     }
-    if (icon === 'sheep-icon') {
-      this.addOrganismOnClick(1);
+    const elementID = event.target.id;
+    if(organismIdToClassMapping[elementID]) {
+      this.addOrganismOnClick(organismIdToClassMapping[elementID]);
     }
-    if (icon === 'fox-icon') {
-      this.addOrganismOnClick(2);
-    }
-    if (icon === 'antelope-icon') {
-      this.addOrganismOnClick(3);
-    }
-    if (icon === 'turtle-icon') {
-      this.addOrganismOnClick(4);
-    }
-    if (icon === 'grass-icon') {
-      this.addOrganismOnClick(5);
-    }
-    if (icon === 'guarana-icon') {
-      this.addOrganismOnClick(6);
-    }
-    if (icon === 'berry-icon') {
-      this.addOrganismOnClick(7);
-    }
-    if (icon === 'thistle-icon') {
-      this.addOrganismOnClick(8);
-    }
-    if (icon === 'close-button') {
+    if (elementID === 'close-button') {
       const modal = document.getElementById('addOrganismModal');
       modal.style.display = 'none';
     }
