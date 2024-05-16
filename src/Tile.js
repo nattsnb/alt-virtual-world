@@ -43,53 +43,12 @@ export class Tile {
       await this.checkClickOnIcon;
     }
   };
+
   getCurrentOrganism = () => {
     if (this.currentOrganism) {
       return this.currentOrganism.isAlive;
     } else {
       return false;
     }
-  };
-  initializeEventListenerOnModal = () => {
-    const icons = document.querySelectorAll('.icon-container');
-    for (let i = 0; i < icons.length; ++i) {
-      const icon = icons[i];
-      icon.addEventListener('click', this.eventToTrigger);
-    }
-    const closeButton = document.querySelector('#close-button');
-    closeButton.addEventListener('click', this.eventToTrigger);
-  };
-  eventToTrigger = (event) => {
-    this.checkClickOnIcon(event);
-  };
-  checkClickOnIcon = (event) => {
-    const organismIdToClassMapping = {
-      wolf: Wolf,
-      sheep: Sheep,
-      fox: Fox,
-      antelope: Antelope,
-      turtle: Turtle,
-      grass: Grass,
-      guarana: Guarana,
-      berry: Berry,
-      thistle: Thistle
-    }
-    const elementID = event.target.id;
-    if(organismIdToClassMapping[elementID]) {
-      this.addOrganismOnClick(organismIdToClassMapping[elementID]);
-    }
-    if (elementID === 'close-button') {
-      const modal = document.getElementById('addOrganismModal');
-      modal.style.display = 'none';
-    }
-  };
-  addOrganismOnClick = (index) => {
-    const newOrganism = new classesList[index](
-      this.board,
-      classesList[index].startParameters,
-    );
-    this.addCurrentOrganism(newOrganism);
-    const modal = document.getElementById('addOrganismModal');
-    modal.style.display = 'none';
   };
 }
