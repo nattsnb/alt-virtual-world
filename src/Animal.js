@@ -11,9 +11,6 @@ export class Animal extends Organism {
   }
   action = () => {
     if (this.isAlive) {
-      // console.log(`My turn!`)
-      // console.log(this)
-      // console.log(this.isAlive)
       const newTile = this.findTileForMove();
       const opponent = newTile.currentOrganism;
       if (opponent) {
@@ -28,22 +25,15 @@ export class Animal extends Organism {
         this.move(newTile);
       }
     }
-    // console.log('action: animal');
     super.action();
   };
   findTileForMove = () => {
     const nearestTiles = this.board.findNearestTiles(this);
-    // console.log(nearestTiles);
     return findRandomTileInArray(nearestTiles);
-    // console.log(newTile);
   };
   move = (newTile) => {
-    // console.log(this.currentTile)
-    // console.log(newTile)
     this.currentTile.clearTile();
     newTile.addCurrentOrganism(this);
-    // console.log(newTile.currentOrganism)
-    // console.log(`I moved!`);
   };
 
   shouldMove = (newTile) => {
@@ -59,7 +49,6 @@ export class Animal extends Organism {
     } else {
       this.currentTile.killCurrentOrganism(this);
     }
-    // console.log(`I ate a plant`);
   };
   shouldMate = (opponent) => {
     if (opponent.isAlive) {
@@ -71,18 +60,14 @@ export class Animal extends Organism {
       this,
       opponent,
     );
-    // console.log(`I will mate`);
     if (surroundingEmptyTiles.length > 0) {
       const tileForChild = findRandomTileInArray(surroundingEmptyTiles);
       const child = new this.constructor(
         this.board,
         this.constructor.startParameters,
       );
-      // console.log(`child:`);
-      // console.log(child);
       tileForChild.addCurrentOrganism(child);
     }
-    // console.log(`I mated`);
   };
   shouldFight = (opponent) => {
     if (opponent.isAlive) {
@@ -90,20 +75,16 @@ export class Animal extends Organism {
     }
   };
   fight = (opponent) => {
-    // console.log(`I will fight`);
-    // animal looses
+    //animal looses
     if (opponent.strength > this.strength) {
       this.currentTile.killCurrentOrganism(opponent);
-      // console.log(`I lost`);
     }
     // animal wins
     else if (opponent.strength < this.strength) {
       const newTile = opponent.currentTile;
       newTile.killCurrentOrganism(this);
       this.move(newTile);
-      // console.log(`I won`);
     }
     // draw
-    // console.log(`draw`);
   };
 }

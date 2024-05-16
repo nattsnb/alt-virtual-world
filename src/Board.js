@@ -1,7 +1,7 @@
 import { Tile } from './Tile';
 import { classesList } from './classesList';
 import { Player } from './player/Player';
-import {Modal} from "./Modal";
+import { Modal } from './Modal';
 
 export class Board {
   constructor(width, height) {
@@ -41,16 +41,14 @@ export class Board {
       );
       const tileForNewOrganism = this.findRandomTileOnBoard();
       tileForNewOrganism.addCurrentOrganism(organism);
-      // console.log(organism);
     }
     const player = new Player(this, Player.startParameters);
-    // console.log(player);
     const tileForPlayer = this.findRandomTileOnBoard();
     tileForPlayer.addCurrentOrganism(player);
   };
   initializeModal = () => {
-    this.modal = new Modal(this)
-}
+    this.modal = new Modal(this);
+  };
   findRandomTileOnBoard = () => {
     const randomX = Math.floor(Math.random() * this.width);
     const randomY = Math.floor(Math.random() * this.height);
@@ -62,9 +60,7 @@ export class Board {
   };
   round = async () => {
     const organismsOnBoard = this.getOrganisms();
-    // console.log(organismsOnBoard);
     this.sortedOrganismsOnBoard = this.sortOrganisms(organismsOnBoard);
-    // console.log(this.sortedOrganismsOnBoard);
     for (let i = 0; i < this.sortedOrganismsOnBoard.length; i++) {
       await this.sortedOrganismsOnBoard[i].action();
     }
@@ -95,10 +91,8 @@ export class Board {
   }
   findNearestTiles = (organism) => {
     const minimalStep = organism.numberOfSteps - 1;
-    // console.log(minimalStep);
     const x = organism.currentTile.x;
     const y = organism.currentTile.y;
-    // console.log(x, y);
     const xMax = this.width - organism.numberOfSteps;
     const yMax = this.height - organism.numberOfSteps;
     let arrayOfNearestTiles = [];

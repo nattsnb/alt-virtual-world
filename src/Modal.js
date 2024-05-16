@@ -65,6 +65,6 @@ export class Modal {
   addOrganismOnClick = (whatClass) => {
     const newOrganism = new whatClass(this.board, whatClass.startParameters);
     this.activeTile.addCurrentOrganism(newOrganism);
-    this.deactivate()
+    this.deactivate();
   };
 }

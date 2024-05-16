@@ -37,7 +37,7 @@ export class Tile {
 
   checkClickOnTile = async () => {
     if (!this.currentOrganism) {
-      this.board.modal.activate(this)
+      this.board.modal.activate(this);
     }
   };
 
