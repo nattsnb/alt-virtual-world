@@ -37,10 +37,7 @@ export class Tile {
 
   checkClickOnTile = async () => {
     if (!this.currentOrganism) {
-      const modal = document.getElementById('addOrganismModal');
-      this.initializeEventListenerOnModal();
-      modal.style.display = 'block';
-      await this.checkClickOnIcon;
+      this.board.modal.activate(this)
     }
   };
 

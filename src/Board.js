@@ -1,14 +1,17 @@
 import { Tile } from './Tile';
 import { classesList } from './classesList';
 import { Player } from './player/Player';
+import {Modal} from "./Modal";
 
 export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
     this.tiles = [];
+    this.modal = null;
     this.initializeTiles();
     this.createInitialCharacters();
+    this.initializeModal();
   }
   static isOrganismAPlayer(organism) {
     return organism instanceof Player;
@@ -45,6 +48,9 @@ export class Board {
     const tileForPlayer = this.findRandomTileOnBoard();
     tileForPlayer.addCurrentOrganism(player);
   };
+  initializeModal = () => {
+    this.modal = new Modal(this)
+}
   findRandomTileOnBoard = () => {
     const randomX = Math.floor(Math.random() * this.width);
     const randomY = Math.floor(Math.random() * this.height);

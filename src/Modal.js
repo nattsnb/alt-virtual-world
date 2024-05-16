@@ -14,6 +14,7 @@ export class Modal {
     this.board = board;
     this.isVisible = false;
     this.activeTile = null;
+    this.initializeEventListenerOnModal();
   }
   activate = (tile) => {
     const modal = document.getElementById('addOrganismModal');
@@ -63,6 +64,7 @@ export class Modal {
   };
   addOrganismOnClick = (whatClass) => {
     const newOrganism = new whatClass(this.board, whatClass.startParameters);
-    this.addCurrentOrganism(newOrganism);
+    this.activeTile.addCurrentOrganism(newOrganism);
+    this.deactivate()
   };
 }

@@ -133,63 +133,63 @@ body {
   margin: 0 0 3px 0;
 }
 
-#wolf-icon {
+#wolf {
   background-image: url('wolf/wolf.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#fox-icon {
+#fox {
   background-image: url('fox/fox.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#sheep-icon {
+#sheep {
   background-image: url('sheep/sheep.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#antelope-icon {
+#antelope {
   background-image: url('antelope/antelope.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#turtle-icon {
+#turtle {
   background-image: url('turtle/turtle.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#grass-icon {
+#grass {
   background-image: url('grass/grass.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#guarana-icon {
+#guarana {
   background-image: url('guarana/guarana.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#berry-icon {
+#berry {
   background-image: url('berry/berry.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#thistle-icon {
+#thistle {
   background-image: url('thistle/thistle.jpg');
   background-position: center;
   background-repeat: no-repeat;
