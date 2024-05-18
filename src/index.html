@@ -6,7 +6,110 @@
     <link href="styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <img src="./images/js_logo.png" alt="JavaScript logo" />
-    <script type="module" src="index.js"></script>
+    <div id="board-container"></div>
+    <div id="addOrganismModal">
+      <div id="modal-container">
+        <div id="modal-header">
+          <span id="header-content">Choose organism to create:</span>
+          <span id="close-button">&times;</span>
+        </div>
+        <div id="modal-body">
+          <div class="column-container">
+            <div class="organism-container">
+              <div class="icon-container" id="wolf"></div>
+              <div class="organism-parameters">
+                <p class="organism-info-paragraph">Wolf</p>
+                <p class="organism-info-paragraph">
+                  Strength: 9, Initiative: 5
+                </p>
+              </div>
+            </div>
+            <div class="organism-container">
+              <div class="icon-container" id="sheep"></div>
+              <div class="organism-parameters">
+                <p class="organism-info-paragraph">Sheep</p>
+                <p class="organism-info-paragraph">
+                  Strength: 3, Initiative: 4
+                </p>
+              </div>
+            </div>
+            <div class="organism-container">
+              <div class="icon-container" id="fox"></div>
+              <div class="organism-parameters">
+                <p class="organism-info-paragraph">Fox</p>
+                <p class="organism-info-paragraph">
+                  Strength: 4, Initiative: 7
+                </p>
+                <p class="organism-info-paragraph">
+                  Never tries to move to a field that is occupied by a stronger
+                  organism
+                </p>
+              </div>
+            </div>
+            <div class="organism-container">
+              <div class="icon-container" id="antelope"></div>
+              <div class="organism-parameters">
+                <p class="organism-info-paragraph">Antelope</p>
+                <p class="organism-info-paragraph">
+                  Strength: 4, Initiative: 4
+                </p>
+                <p class="organism-info-paragraph">
+                  Has double range of movement and 50% chance of fleeing from a
+                  fight
+                </p>
+              </div>
+            </div>
+            <div class="organism-container">
+              <div class="icon-container" id="turtle"></div>
+              <div class="organism-parameters">
+                <p class="organism-info-paragraph">Turtle</p>
+                <p class="organism-info-paragraph">
+                  Strength: 2, Initiative: 1
+                </p>
+                <p class="organism-info-paragraph">
+                  Won't change it's field in 75% of times. Defends itself from
+                  attacks of organisms with strength lower than 5.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="column-container">
+            <div class="organism-container">
+              <div class="icon-container" id="grass"></div>
+              <div class="organism-parameters">
+                <p class="organism-info-paragraph">Grass</p>
+              </div>
+            </div>
+            <div class="organism-container">
+              <div class="icon-container" id="guarana"></div>
+              <div class="organism-parameters">
+                <p class="organism-info-paragraph">Guarana</p>
+                <p class="organism-info-paragraph">
+                  Eating it boosts strength by 3 points
+                </p>
+              </div>
+            </div>
+            <div class="organism-container">
+              <div class="icon-container" id="berry"></div>
+              <div class="organism-parameters">
+                <p class="organism-info-paragraph">Poison Berry</p>
+                <p class="organism-info-paragraph">
+                  Kills everything that dares to eat it
+                </p>
+              </div>
+            </div>
+            <div class="organism-container">
+              <div class="icon-container" id="thistle"></div>
+              <div class="organism-parameters">
+                <p class="organism-info-paragraph">Snow Thistle</p>
+                <p class="organism-info-paragraph">
+                  Has three times as much chance of spreading than other plants
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
